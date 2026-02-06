@@ -2,9 +2,15 @@ import type { CollectionConfig } from 'payload'
 
 export const Automations: CollectionConfig = {
   slug: 'automations',
+  labels: {
+    singular: 'Automatyzacja',
+    plural: 'Automatyzacje',
+  },
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['lp', 'name', 'category', 'savingsMin', 'savingsMax', 'isActive'],
+    group: 'Kalkulator',
+    description: 'Automatyzacje dostępne do wyboru w kalkulatorze oszczędności',
   },
   access: {
     read: () => true,

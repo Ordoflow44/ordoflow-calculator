@@ -1,1 +1,504 @@
-/* Custom Payload Admin styles */
+/* Ordoflow Admin Panel - Custom Design */
+
+// Color palette - Navy Blue theme
+$navy-dark: #0f172a;
+$navy-medium: #1e293b;
+$navy-light: #334155;
+$blue-accent: #3b82f6;
+$blue-light: #60a5fa;
+$blue-glow: #2563eb;
+$white: #ffffff;
+$gray-50: #f8fafc;
+$gray-100: #f1f5f9;
+$gray-200: #e2e8f0;
+$gray-300: #cbd5e1;
+$gray-600: #475569;
+$success: #10b981;
+$warning: #f59e0b;
+
+// =============================================
+// GLOBAL OVERRIDES
+// =============================================
+
+:root {
+  --theme-elevation-0: #{$white} !important;
+  --theme-elevation-50: #{$gray-50} !important;
+  --theme-elevation-100: #{$gray-100} !important;
+  --theme-elevation-150: #{$gray-200} !important;
+  --theme-elevation-200: #{$gray-200} !important;
+  --theme-elevation-250: #{$gray-300} !important;
+  --theme-elevation-300: #{$gray-300} !important;
+  --theme-elevation-400: #{$navy-light} !important;
+  --theme-elevation-500: #{$navy-medium} !important;
+  --theme-elevation-600: #{$navy-medium} !important;
+  --theme-elevation-700: #{$navy-dark} !important;
+  --theme-elevation-800: #{$navy-dark} !important;
+  --theme-elevation-900: #{$navy-dark} !important;
+  --theme-elevation-1000: #{$navy-dark} !important;
+
+  --theme-text: #{$gray-600} !important;
+  --theme-bg: #{$white} !important;
+
+  --theme-success-50: #ecfdf5 !important;
+  --theme-success-500: #{$success} !important;
+  --theme-warning-500: #{$warning} !important;
+
+  // Brand colors
+  --color-primary: #{$blue-accent};
+  --color-primary-light: #{$blue-light};
+  --color-navy: #{$navy-dark};
+  --color-navy-medium: #{$navy-medium};
+}
+
+// =============================================
+// HEADER - Top bar with logo space
+// =============================================
+
+.template-default__nav {
+  background: linear-gradient(135deg, $navy-dark 0%, $navy-medium 100%) !important;
+  border-right: none !important;
+  box-shadow: 4px 0 20px rgba(15, 23, 42, 0.3) !important;
+}
+
+header.app-header {
+  background: linear-gradient(90deg, $navy-dark 0%, $navy-medium 50%, $blue-glow 100%) !important;
+  border-bottom: 3px solid $blue-accent !important;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2) !important;
+
+  // Logo area styling
+  .nav-header {
+    padding: 1.5rem 1rem !important;
+    margin-bottom: 1rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+    // Logo placeholder frame
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+      border: 2px dashed rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// =============================================
+// NAV / SIDEBAR - Tile-style menu
+// =============================================
+
+nav.nav {
+  background: linear-gradient(180deg, $navy-dark 0%, $navy-medium 100%) !important;
+  padding: 0.5rem !important;
+
+  .nav__scroll {
+    padding: 0 0.5rem !important;
+  }
+}
+
+// Navigation groups
+.nav-group {
+  margin-bottom: 1rem !important;
+
+  .nav-group__toggle {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 12px !important;
+    padding: 0.75rem 1rem !important;
+    margin-bottom: 0.5rem !important;
+    color: $white !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    font-size: 0.75rem !important;
+    transition: all 0.3s ease !important;
+
+    &:hover {
+      background: rgba(59, 130, 246, 0.2) !important;
+    }
+
+    .nav-group__toggle-icon {
+      color: $blue-light !important;
+    }
+  }
+}
+
+// Menu items as tiles
+.nav-group__content {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 0.5rem !important;
+  padding: 0.5rem !important;
+}
+
+.nav__link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  padding: 1rem 1.25rem !important;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+
+  // Subtle glow effect
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0.1) 100%) !important;
+    border-color: rgba(59, 130, 246, 0.5) !important;
+    transform: translateX(4px) !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2) !important;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  // Active state
+  &.active,
+  &[aria-current="page"] {
+    background: linear-gradient(135deg, $blue-accent 0%, $blue-glow 100%) !important;
+    border-color: $blue-light !important;
+    color: $white !important;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4) !important;
+
+    .nav__link-icon {
+      color: $white !important;
+    }
+  }
+
+  // Icon styling
+  .nav__link-icon {
+    width: 24px !important;
+    height: 24px !important;
+    color: $blue-light !important;
+    transition: color 0.3s ease !important;
+  }
+
+  // Label
+  .nav__link-label {
+    font-weight: 500 !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+// =============================================
+// MAIN CONTENT AREA - White background
+// =============================================
+
+.template-default {
+  background: $gray-50 !important;
+}
+
+.template-default__content {
+  background: $white !important;
+}
+
+main.main {
+  background: $gray-50 !important;
+  padding: 2rem !important;
+}
+
+// Dashboard cards
+.dashboard {
+  background: $white !important;
+
+  .card {
+    background: $white !important;
+    border: 1px solid $gray-200 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+    transition: all 0.3s ease !important;
+
+    &:hover {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
+      transform: translateY(-2px) !important;
+    }
+  }
+}
+
+// Collection list view
+.collection-list {
+  background: $white !important;
+  border-radius: 16px !important;
+  border: 1px solid $gray-200 !important;
+  overflow: hidden !important;
+}
+
+.table {
+  background: $white !important;
+
+  th {
+    background: $gray-50 !important;
+    color: $navy-dark !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.5px !important;
+    border-bottom: 2px solid $gray-200 !important;
+  }
+
+  td {
+    border-bottom: 1px solid $gray-100 !important;
+  }
+
+  tr:hover td {
+    background: $gray-50 !important;
+  }
+}
+
+// =============================================
+// FORMS & INPUTS
+// =============================================
+
+.field-type {
+  background: $white !important;
+
+  input,
+  textarea,
+  select {
+    background: $white !important;
+    border: 2px solid $gray-200 !important;
+    border-radius: 12px !important;
+    color: $navy-dark !important;
+    transition: all 0.3s ease !important;
+
+    &:focus {
+      border-color: $blue-accent !important;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+      outline: none !important;
+    }
+  }
+
+  label {
+    color: $navy-medium !important;
+    font-weight: 600 !important;
+  }
+}
+
+// =============================================
+// BUTTONS
+// =============================================
+
+.btn {
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+
+  &--style-primary {
+    background: linear-gradient(135deg, $blue-accent 0%, $blue-glow 100%) !important;
+    border: none !important;
+    color: $white !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+
+    &:hover {
+      background: linear-gradient(135deg, $blue-light 0%, $blue-accent 100%) !important;
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
+      transform: translateY(-2px) !important;
+    }
+  }
+
+  &--style-secondary {
+    background: $white !important;
+    border: 2px solid $gray-200 !important;
+    color: $navy-dark !important;
+
+    &:hover {
+      border-color: $blue-accent !important;
+      color: $blue-accent !important;
+      background: rgba(59, 130, 246, 0.05) !important;
+    }
+  }
+}
+
+// =============================================
+// DOCUMENT HEADER
+// =============================================
+
+.doc-header {
+  background: $white !important;
+  border-bottom: 1px solid $gray-200 !important;
+  border-radius: 16px 16px 0 0 !important;
+
+  h1 {
+    color: $navy-dark !important;
+    font-weight: 700 !important;
+  }
+}
+
+// =============================================
+// EYEBROW / BREADCRUMBS
+// =============================================
+
+.step-nav {
+  background: transparent !important;
+
+  a {
+    color: $gray-600 !important;
+
+    &:hover {
+      color: $blue-accent !important;
+    }
+  }
+}
+
+// =============================================
+// LOGO AREA - Custom component placeholder
+// =============================================
+
+.nav-header {
+  padding: 1.5rem 1rem !important;
+  text-align: center !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  margin-bottom: 1rem !important;
+
+  // Custom logo frame
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+
+    img {
+      max-width: 80%;
+      max-height: 50px;
+      object-fit: contain;
+    }
+
+    // Placeholder text when no logo
+    &:empty::after {
+      content: 'ORDOFLOW';
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+// =============================================
+// ANIMATIONS
+// =============================================
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.template-default__content {
+  animation: fadeIn 0.3s ease-out;
+}
+
+// =============================================
+// SCROLLBAR STYLING
+// =============================================
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $gray-100;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gray-300;
+  border-radius: 4px;
+
+  &:hover {
+    background: $gray-600;
+  }
+}
+
+// Sidebar scrollbar
+.nav__scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav__scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+// =============================================
+// RESPONSIVE ADJUSTMENTS
+// =============================================
+
+@media (max-width: 768px) {
+  .nav__link {
+    padding: 0.875rem 1rem !important;
+    border-radius: 12px !important;
+  }
+
+  main.main {
+    padding: 1rem !important;
+  }
+}
+
+// =============================================
+// LOGIN PAGE STYLING
+// =============================================
+
+.login {
+  background: linear-gradient(135deg, $navy-dark 0%, $navy-medium 50%, $blue-glow 100%) !important;
+  min-height: 100vh;
+
+  .login__brand {
+    // Logo area on login
+    margin-bottom: 2rem;
+
+    img {
+      max-width: 200px;
+    }
+  }
+
+  .login__form {
+    background: $white !important;
+    border-radius: 24px !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    padding: 3rem !important;
+  }
+
+  h1 {
+    color: $navy-dark !important;
+    font-weight: 700 !important;
+  }
+
+  input {
+    background: $gray-50 !important;
+    border: 2px solid $gray-200 !important;
+    border-radius: 12px !important;
+
+    &:focus {
+      border-color: $blue-accent !important;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+    }
+  }
+}

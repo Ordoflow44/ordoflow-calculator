@@ -2,9 +2,15 @@ import type { CollectionConfig } from 'payload'
 
 export const Leads: CollectionConfig = {
   slug: 'leads',
+  labels: {
+    singular: 'Lead',
+    plural: 'Leady',
+  },
   admin: {
     useAsTitle: 'email',
     defaultColumns: ['firstName', 'email', 'company', 'totalSavingsYearly', 'createdAt'],
+    group: 'Sprzedaż',
+    description: 'Potencjalni klienci, którzy użyli kalkulatora',
   },
   access: {
     create: () => true, // Publiczny endpoint do tworzenia leadów

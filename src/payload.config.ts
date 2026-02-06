@@ -15,6 +15,19 @@ export default buildConfig({
     user: Users.slug,
     meta: {
       titleSuffix: ' | Ordoflow Calculator',
+      icons: [
+        {
+          rel: 'icon',
+          type: 'image/svg+xml',
+          url: '/favicon.svg',
+        },
+      ],
+    },
+    components: {
+      graphics: {
+        Logo: '@/components/admin/Logo',
+        Icon: '@/components/admin/Icon',
+      },
     },
   },
   collections: [Users, Categories, Automations, Leads],
