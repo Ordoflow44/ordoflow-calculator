@@ -5,7 +5,8 @@ import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import sharp from 'sharp'
 
-import { Users, Categories, Automations, Leads } from './collections'
+import { Users, Categories, Automations, Leads, Media } from './collections'
+import { Settings } from './globals'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -30,7 +31,13 @@ export default buildConfig({
       },
     },
   },
-  collections: [Users, Categories, Automations, Leads],
+  collections: [Users, Categories, Automations, Leads, Media],
+  globals: [Settings],
+  upload: {
+    limits: {
+      fileSize: 5000000, // 5MB
+    },
+  },
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
