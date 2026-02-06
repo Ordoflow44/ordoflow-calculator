@@ -159,7 +159,7 @@ export async function GET(request: Request) {
     }
 
     // Create categories first
-    const categoryMap: Record<string, number> = {}
+    const categoryMap: Record<string, number | string> = {}
 
     for (const cat of seedData.categories) {
       const created = await payload.create({
