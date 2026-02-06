@@ -1,35 +1,84 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-const containerStyles: React.CSSProperties = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '100%',
-  padding: '0.5rem',
+interface MediaFile {
+  url?: string
+  alt?: string
+  sizes?: {
+    logo?: {
+      url?: string
+    }
+  }
 }
 
-const logoBoxStyles: React.CSSProperties = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '100%',
-  height: '50px',
-  background: 'rgba(255, 255, 255, 0.08)',
-  border: '1px dashed rgba(255, 255, 255, 0.25)',
-  borderRadius: '8px',
-  color: 'rgba(255, 255, 255, 0.9)',
-  fontSize: '1.1rem',
-  fontWeight: 700,
-  letterSpacing: '2px',
+interface Settings {
+  logo?: MediaFile | number
+  companyName?: string
 }
 
 const Logo: React.FC = () => {
+  const [logoUrl, setLogoUrl] = useState<string | null>(null)
+  const [companyName, setCompanyName] = useState<string>('ORDOFLOW')
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const response = await fetch('/api/globals/settings?depth=1')
+        if (response.ok) {
+          const data: Settings = await response.json()
+
+          if (data.companyName) {
+            setCompanyName(data.companyName)
+          }
+
+          if (data.logo && typeof data.logo === 'object') {
+            // Prefer logo size, fallback to original
+            const url = data.logo.sizes?.logo?.url || data.logo.url
+            if (url) {
+              setLogoUrl(url)
+            }
+          }
+        }
+      } catch (error) {
+        console.error('Failed to fetch settings:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchSettings()
+  }, [])
+
+  if (isLoading) {
+    return (
+      <div className="ordoflow-logo-container">
+        <div className="ordoflow-logo-box ordoflow-logo-loading">
+          <div className="ordoflow-logo-skeleton" />
+        </div>
+      </div>
+    )
+  }
+
+  if (logoUrl) {
+    return (
+      <div className="ordoflow-logo-container">
+        <div className="ordoflow-logo-image-wrapper">
+          <img
+            src={logoUrl}
+            alt={companyName}
+            className="ordoflow-logo-image"
+          />
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <div style={containerStyles}>
-      <div style={logoBoxStyles}>
-        ORDOFLOW
+    <div className="ordoflow-logo-container">
+      <div className="ordoflow-logo-box">
+        {companyName}
       </div>
     </div>
   )

@@ -29,6 +29,10 @@ export default buildConfig({
         Logo: '@/components/admin/Logo',
         Icon: '@/components/admin/Icon',
       },
+      providers: ['@/components/admin/AdminThemeProvider'],
+    },
+    importMap: {
+      baseDir: path.resolve(dirname),
     },
   },
   collections: [Users, Categories, Automations, Leads, Media],
