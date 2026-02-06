@@ -1,114 +1,347 @@
 /* Ordoflow Admin Panel - Custom L-Layout Theme */
+/* Navy sidebar + header, WHITE content area */
+
+/* ===========================================
+   CSS Variables - Force light theme for content
+   =========================================== */
 
 :root {
-  /* Main colors */
   --ordoflow-navy: #1e3a5f;
   --ordoflow-navy-dark: #152a47;
   --ordoflow-navy-light: #2a4a73;
-  --ordoflow-white: #ffffff;
-  --ordoflow-gray-light: #f8f9fa;
+}
 
-  /* Override Payload theme variables */
-  --theme-elevation-0: var(--ordoflow-white);
-  --theme-elevation-50: var(--ordoflow-gray-light);
+/* Force light theme on main content */
+[data-theme="dark"] .template-default,
+[data-theme="dark"] .template-default__wrap,
+[data-theme="dark"] main,
+[data-theme="dark"] .dashboard,
+[data-theme="dark"] .collection-list,
+[data-theme="dark"] .document-fields,
+[data-theme="dark"] .render-fields,
+[data-theme="dark"] .form-submit,
+[data-theme="dark"] .edit-view,
+[data-theme="dark"] .list-view {
+  --theme-elevation-0: #ffffff !important;
+  --theme-elevation-50: #f9fafb !important;
+  --theme-elevation-100: #f3f4f6 !important;
+  --theme-elevation-150: #e5e7eb !important;
+  --theme-elevation-200: #d1d5db !important;
+  --theme-elevation-250: #9ca3af !important;
+  --theme-elevation-300: #6b7280 !important;
+  --theme-elevation-350: #4b5563 !important;
+  --theme-elevation-400: #374151 !important;
+  --theme-elevation-450: #1f2937 !important;
+  --theme-elevation-500: #111827 !important;
+  --theme-elevation-550: #0a0a0a !important;
+  --theme-elevation-600: #000000 !important;
+  --theme-elevation-650: #000000 !important;
+  --theme-elevation-700: #000000 !important;
+  --theme-elevation-750: #000000 !important;
+  --theme-elevation-800: #000000 !important;
+  --theme-elevation-850: #000000 !important;
+  --theme-elevation-900: #000000 !important;
+  --theme-elevation-950: #000000 !important;
+  --theme-elevation-1000: #000000 !important;
+
+  --theme-bg: #ffffff !important;
+  --theme-text: #111827 !important;
+  --theme-input-bg: #ffffff !important;
+
+  background-color: #ffffff !important;
+  color: #111827 !important;
 }
 
 /* ===========================================
-   L-LAYOUT: Top bar + Left sidebar = Navy
-   Content area = White
+   MAIN CONTENT AREA - WHITE BACKGROUND
    =========================================== */
 
-/* Top header bar - Navy */
-.payload-header {
+.template-default,
+.template-default__wrap {
+  background: #ffffff !important;
+}
+
+main.main,
+.main {
+  background: #ffffff !important;
+}
+
+/* Dashboard */
+.dashboard {
+  background: #ffffff !important;
+}
+
+.dashboard__wrap {
+  background: #ffffff !important;
+}
+
+/* Dashboard cards */
+.dashboard__card,
+.card {
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  color: #111827 !important;
+}
+
+.dashboard__card-list {
+  background: #ffffff !important;
+}
+
+/* Collection list view */
+.collection-list,
+.list-view,
+.list {
+  background: #ffffff !important;
+}
+
+/* Document edit view */
+.edit-view,
+.document-fields,
+.render-fields {
+  background: #ffffff !important;
+}
+
+/* Form fields */
+.field-type {
+  background: transparent !important;
+}
+
+.field-type label {
+  color: #374151 !important;
+}
+
+.field-type input,
+.field-type textarea,
+.field-type select {
+  background: #ffffff !important;
+  border-color: #d1d5db !important;
+  color: #111827 !important;
+}
+
+.field-type input:focus,
+.field-type textarea:focus,
+.field-type select:focus {
+  border-color: var(--ordoflow-navy) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(30, 58, 95, 0.2) !important;
+}
+
+/* ===========================================
+   NAVIGATION SIDEBAR - NAVY
+   =========================================== */
+
+.nav,
+.nav__wrap,
+nav[class*="nav"] {
   background: var(--ordoflow-navy) !important;
+}
+
+/* Nav header with logo */
+.nav__header {
+  background: var(--ordoflow-navy-dark) !important;
   border-bottom: 1px solid var(--ordoflow-navy-light) !important;
 }
 
-/* Nav sidebar - Navy with fixed position */
-.nav {
-  background: var(--ordoflow-navy) !important;
-  border-right: none !important;
-}
-
-.nav__wrap {
-  background: var(--ordoflow-navy) !important;
-}
-
-/* Nav links styling */
+/* Nav links */
+.nav a,
 .nav__link,
-.nav-group__toggle {
+.nav-group__toggle,
+.nav button {
   color: rgba(255, 255, 255, 0.85) !important;
-  transition: all 0.2s ease;
 }
 
+.nav a:hover,
 .nav__link:hover,
-.nav-group__toggle:hover {
+.nav-group__toggle:hover,
+.nav button:hover {
   color: #ffffff !important;
   background: var(--ordoflow-navy-light) !important;
 }
 
-.nav__link--active {
+.nav__link--active,
+.nav a[aria-current="page"] {
   background: var(--ordoflow-navy-light) !important;
   color: #ffffff !important;
 }
 
-.nav__link--active::before {
-  background: #60a5fa !important;
-}
-
-/* Nav group headers */
-.nav-group__label {
+/* Nav group labels */
+.nav-group__label,
+.nav [class*="label"] {
   color: rgba(255, 255, 255, 0.5) !important;
+  text-transform: uppercase !important;
   font-size: 0.7rem !important;
   letter-spacing: 1px !important;
-  text-transform: uppercase !important;
 }
 
 /* Nav icons */
-.nav__link svg,
-.nav-group__toggle svg {
+.nav svg {
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
-.nav__link:hover svg,
+.nav a:hover svg,
 .nav__link--active svg {
   color: #ffffff !important;
 }
 
-/* Main content area - White background */
-.template-default,
-.template-default__wrap,
-main.main {
-  background: var(--ordoflow-white) !important;
+/* ===========================================
+   TOP HEADER - NAVY
+   =========================================== */
+
+header,
+.app-header,
+[class*="header"] {
+  background: var(--ordoflow-navy) !important;
+  border-bottom: 1px solid var(--ordoflow-navy-light) !important;
 }
 
-/* Dashboard cards/panels */
-.dashboard__card {
-  background: var(--ordoflow-white) !important;
-  border: 1px solid #e5e7eb !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+header *,
+.app-header * {
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
-/* Form elements in content */
-.field-type,
-.field-type input,
-.field-type textarea,
-.field-type select {
-  background: var(--ordoflow-white) !important;
+header a:hover,
+header button:hover {
+  color: #ffffff !important;
+}
+
+/* Breadcrumbs in header - keep readable */
+.step-nav,
+[class*="step-nav"],
+[class*="breadcrumb"] {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.step-nav a,
+[class*="step-nav"] a {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.step-nav a:hover {
+  color: #ffffff !important;
 }
 
 /* ===========================================
-   Logo area styling
+   ACCOUNT MENU (bottom of sidebar)
    =========================================== */
 
-/* Logo container in sidebar */
-.nav__header {
-  background: var(--ordoflow-navy-dark) !important;
-  border-bottom: 1px solid var(--ordoflow-navy-light) !important;
-  padding: 1rem !important;
+.account,
+[class*="account"] {
+  background: var(--ordoflow-navy) !important;
+  border-top: 1px solid var(--ordoflow-navy-light) !important;
 }
 
-/* Logo wrapper */
+.account *,
+[class*="account"] * {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.account a:hover,
+.account button:hover {
+  background: var(--ordoflow-navy-light) !important;
+  color: #ffffff !important;
+}
+
+/* ===========================================
+   TABLES - WHITE BACKGROUND
+   =========================================== */
+
+table,
+.table {
+  background: #ffffff !important;
+}
+
+thead,
+.table thead {
+  background: #f9fafb !important;
+}
+
+th {
+  color: #374151 !important;
+  background: #f9fafb !important;
+}
+
+td {
+  color: #111827 !important;
+  background: #ffffff !important;
+  border-color: #e5e7eb !important;
+}
+
+tr:hover td {
+  background: #f3f4f6 !important;
+}
+
+/* ===========================================
+   BUTTONS
+   =========================================== */
+
+.btn,
+button[class*="btn"] {
+  transition: all 0.2s ease;
+}
+
+/* Primary buttons - navy */
+.btn--style-primary,
+[class*="btn"][class*="primary"] {
+  background: var(--ordoflow-navy) !important;
+  border-color: var(--ordoflow-navy) !important;
+  color: #ffffff !important;
+}
+
+.btn--style-primary:hover,
+[class*="btn"][class*="primary"]:hover {
+  background: var(--ordoflow-navy-dark) !important;
+}
+
+/* Secondary buttons */
+.btn--style-secondary,
+[class*="btn"][class*="secondary"] {
+  background: #ffffff !important;
+  border-color: var(--ordoflow-navy) !important;
+  color: var(--ordoflow-navy) !important;
+}
+
+.btn--style-secondary:hover {
+  background: var(--ordoflow-navy) !important;
+  color: #ffffff !important;
+}
+
+/* ===========================================
+   MODALS & DRAWERS
+   =========================================== */
+
+.modal,
+.modal__wrap,
+[class*="modal"] {
+  background: #ffffff !important;
+}
+
+.drawer,
+.drawer__content,
+[class*="drawer"] {
+  background: #ffffff !important;
+}
+
+.drawer__header {
+  background: var(--ordoflow-navy) !important;
+  color: #ffffff !important;
+}
+
+/* ===========================================
+   PILLS, TAGS, BADGES
+   =========================================== */
+
+.pill,
+[class*="pill"],
+[class*="tag"],
+[class*="badge"] {
+  background: #e5e7eb !important;
+  color: #374151 !important;
+}
+
+/* ===========================================
+   LOGO STYLES
+   =========================================== */
+
 .ordoflow-logo-container {
   display: flex;
   align-items: center;
@@ -117,7 +350,6 @@ main.main {
   padding: 0.5rem;
 }
 
-/* Logo box placeholder */
 .ordoflow-logo-box {
   display: flex;
   align-items: center;
@@ -139,7 +371,6 @@ main.main {
   border-color: rgba(255, 255, 255, 0.35);
 }
 
-/* Logo image wrapper */
 .ordoflow-logo-image-wrapper {
   display: flex;
   align-items: center;
@@ -149,7 +380,6 @@ main.main {
   padding: 0.25rem;
 }
 
-/* Logo image */
 .ordoflow-logo-image {
   max-width: 100%;
   max-height: 100%;
@@ -158,7 +388,6 @@ main.main {
   object-fit: contain;
 }
 
-/* Loading skeleton */
 .ordoflow-logo-loading {
   background: rgba(255, 255, 255, 0.05);
   border: none;
@@ -179,148 +408,36 @@ main.main {
 }
 
 @keyframes ordoflow-shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 /* ===========================================
-   Account menu & user area
+   LOGIN PAGE
    =========================================== */
 
-.account {
+.login {
   background: var(--ordoflow-navy) !important;
-  border-top: 1px solid var(--ordoflow-navy-light) !important;
 }
 
-.account__button {
-  color: rgba(255, 255, 255, 0.85) !important;
+.login__form {
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
 }
 
-.account__button:hover {
-  color: #ffffff !important;
-  background: var(--ordoflow-navy-light) !important;
+.login__form input {
+  background: #ffffff !important;
+  border-color: #d1d5db !important;
+  color: #111827 !important;
 }
 
-/* Logout & settings links */
-.account__links a {
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-
-.account__links a:hover {
-  color: #ffffff !important;
-  background: var(--ordoflow-navy-light) !important;
+.login__form label {
+  color: #374151 !important;
 }
 
 /* ===========================================
-   Header actions (top right)
-   =========================================== */
-
-.payload-header__actions button,
-.payload-header__actions a {
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-
-.payload-header__actions button:hover,
-.payload-header__actions a:hover {
-  color: #ffffff !important;
-}
-
-/* Search in header */
-.search-filter {
-  background: var(--ordoflow-navy-light) !important;
-  border-color: var(--ordoflow-navy-light) !important;
-}
-
-.search-filter input {
-  color: #ffffff !important;
-}
-
-.search-filter input::placeholder {
-  color: rgba(255, 255, 255, 0.5) !important;
-}
-
-/* ===========================================
-   Table styling
-   =========================================== */
-
-.table {
-  background: var(--ordoflow-white) !important;
-}
-
-.table thead {
-  background: var(--ordoflow-gray-light) !important;
-}
-
-.row-1:hover,
-.table tr:hover {
-  background: rgba(30, 58, 95, 0.05) !important;
-}
-
-/* ===========================================
-   Buttons
-   =========================================== */
-
-.btn--style-primary {
-  background: var(--ordoflow-navy) !important;
-  border-color: var(--ordoflow-navy) !important;
-}
-
-.btn--style-primary:hover {
-  background: var(--ordoflow-navy-dark) !important;
-  border-color: var(--ordoflow-navy-dark) !important;
-}
-
-/* Secondary buttons */
-.btn--style-secondary {
-  border-color: var(--ordoflow-navy) !important;
-  color: var(--ordoflow-navy) !important;
-}
-
-.btn--style-secondary:hover {
-  background: var(--ordoflow-navy) !important;
-  color: #ffffff !important;
-}
-
-/* ===========================================
-   Breadcrumbs
-   =========================================== */
-
-.step-nav a,
-.step-nav span {
-  color: #6b7280 !important;
-}
-
-.step-nav a:hover {
-  color: var(--ordoflow-navy) !important;
-}
-
-/* ===========================================
-   Document drawer (side panel)
-   =========================================== */
-
-.drawer__content {
-  background: var(--ordoflow-white) !important;
-}
-
-.drawer__header {
-  background: var(--ordoflow-navy) !important;
-  color: #ffffff !important;
-}
-
-/* ===========================================
-   Modal styling
-   =========================================== */
-
-.modal__wrap {
-  background: var(--ordoflow-white) !important;
-}
-
-/* ===========================================
-   Scrollbar styling
+   SCROLLBAR
    =========================================== */
 
 .nav::-webkit-scrollbar {
@@ -336,51 +453,46 @@ main.main {
   border-radius: 3px;
 }
 
-.nav::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+/* ===========================================
+   SEARCH
+   =========================================== */
+
+.search-filter {
+  background: #ffffff !important;
+  border-color: #d1d5db !important;
+}
+
+.search-filter input {
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
+.search-filter input::placeholder {
+  color: #9ca3af !important;
 }
 
 /* ===========================================
-   Login page styling
+   TEXT COLORS FIX
    =========================================== */
 
-.login {
-  background: var(--ordoflow-navy) !important;
+/* Ensure all text in main content is dark */
+.template-default h1,
+.template-default h2,
+.template-default h3,
+.template-default h4,
+.template-default p,
+.template-default span,
+.template-default label,
+main h1, main h2, main h3, main h4,
+main p, main span, main label {
+  color: #111827 !important;
 }
 
-.login__form {
-  background: var(--ordoflow-white) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+/* Links in content */
+main a:not(.nav a):not(header a) {
+  color: var(--ordoflow-navy) !important;
 }
 
-/* ===========================================
-   Media queries for responsive L-layout
-   =========================================== */
-
-@media (max-width: 768px) {
-  /* Mobile: Nav becomes overlay */
-  .nav {
-    background: var(--ordoflow-navy) !important;
-  }
-
-  /* Hamburger menu icon */
-  .nav-toggle {
-    color: #ffffff !important;
-  }
-}
-
-/* ===========================================
-   Custom utility classes
-   =========================================== */
-
-.ordoflow-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.25rem 0.75rem;
-  background: var(--ordoflow-navy);
-  color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border-radius: 9999px;
+main a:not(.nav a):not(header a):hover {
+  color: var(--ordoflow-navy-dark) !important;
 }
