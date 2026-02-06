@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect } from 'react'
+import AdminLayout from './AdminLayout'
 import '@/styles/admin.css'
 
 interface AdminThemeProviderProps {
@@ -9,16 +10,17 @@ interface AdminThemeProviderProps {
 
 const AdminThemeProvider: React.FC<AdminThemeProviderProps> = ({ children }) => {
   useEffect(() => {
-    // Add custom class to body for additional styling hooks
     document.body.classList.add('ordoflow-admin-theme')
-
-    // Cleanup on unmount
     return () => {
       document.body.classList.remove('ordoflow-admin-theme')
     }
   }, [])
 
-  return <>{children}</>
+  return (
+    <AdminLayout>
+      {children}
+    </AdminLayout>
+  )
 }
 
 export default AdminThemeProvider

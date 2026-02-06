@@ -1,498 +1,239 @@
-/* Ordoflow Admin Panel - Custom L-Layout Theme */
-/* Navy sidebar + header, WHITE content area */
+/* Ordoflow Admin - Hide Payload default UI, use custom layout */
 
 /* ===========================================
-   CSS Variables - Force light theme for content
+   HIDE PAYLOAD DEFAULT NAVIGATION & HEADER
    =========================================== */
 
-:root {
-  --ordoflow-navy: #1e3a5f;
-  --ordoflow-navy-dark: #152a47;
-  --ordoflow-navy-light: #2a4a73;
+/* Hide Payload's default nav sidebar */
+.nav,
+.nav__wrap,
+[class*="Nav_nav"],
+[class*="nav_nav"] {
+  display: none !important;
 }
 
-/* Force light theme on main content */
-[data-theme="dark"] .template-default,
-[data-theme="dark"] .template-default__wrap,
-[data-theme="dark"] main,
-[data-theme="dark"] .dashboard,
-[data-theme="dark"] .collection-list,
-[data-theme="dark"] .document-fields,
-[data-theme="dark"] .render-fields,
-[data-theme="dark"] .form-submit,
-[data-theme="dark"] .edit-view,
-[data-theme="dark"] .list-view {
-  --theme-elevation-0: #ffffff !important;
-  --theme-elevation-50: #f9fafb !important;
-  --theme-elevation-100: #f3f4f6 !important;
-  --theme-elevation-150: #e5e7eb !important;
-  --theme-elevation-200: #d1d5db !important;
-  --theme-elevation-250: #9ca3af !important;
-  --theme-elevation-300: #6b7280 !important;
-  --theme-elevation-350: #4b5563 !important;
-  --theme-elevation-400: #374151 !important;
-  --theme-elevation-450: #1f2937 !important;
-  --theme-elevation-500: #111827 !important;
-  --theme-elevation-550: #0a0a0a !important;
-  --theme-elevation-600: #000000 !important;
-  --theme-elevation-650: #000000 !important;
-  --theme-elevation-700: #000000 !important;
-  --theme-elevation-750: #000000 !important;
-  --theme-elevation-800: #000000 !important;
-  --theme-elevation-850: #000000 !important;
-  --theme-elevation-900: #000000 !important;
-  --theme-elevation-950: #000000 !important;
-  --theme-elevation-1000: #000000 !important;
-
-  --theme-bg: #ffffff !important;
-  --theme-text: #111827 !important;
-  --theme-input-bg: #ffffff !important;
-
-  background-color: #ffffff !important;
-  color: #111827 !important;
+/* Hide Payload's default header */
+.app-header,
+[class*="AppHeader"],
+[class*="app-header"] {
+  display: none !important;
 }
 
 /* ===========================================
-   MAIN CONTENT AREA - WHITE BACKGROUND
+   RESET PAYLOAD TEMPLATE STYLES
    =========================================== */
 
+/* Remove default margins/padding from Payload templates */
 .template-default,
 .template-default__wrap {
-  background: #ffffff !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
 }
 
+/* Make main content area fill available space */
 main.main,
 .main {
+  margin: 0 !important;
+  padding: 0 !important;
   background: #ffffff !important;
+  min-height: auto !important;
 }
+
+/* ===========================================
+   FIX CONTENT COLORS (light theme)
+   =========================================== */
 
 /* Dashboard */
 .dashboard {
   background: #ffffff !important;
+  padding: 0 !important;
 }
 
 .dashboard__wrap {
   background: #ffffff !important;
 }
 
-/* Dashboard cards */
+/* Cards in dashboard */
+.card,
 .dashboard__card,
-.card {
+[class*="Card_card"] {
   background: #ffffff !important;
   border: 1px solid #e5e7eb !important;
   color: #111827 !important;
+  border-radius: 8px !important;
 }
 
-.dashboard__card-list {
-  background: #ffffff !important;
+.card:hover,
+.dashboard__card:hover {
+  border-color: #1e3a5f !important;
 }
 
-/* Collection list view */
+/* Collection list */
 .collection-list,
-.list-view,
-.list {
+.list,
+[class*="List_list"] {
   background: #ffffff !important;
 }
 
-/* Document edit view */
-.edit-view,
-.document-fields,
-.render-fields {
+/* Tables */
+table {
   background: #ffffff !important;
 }
 
-/* Form fields */
-.field-type {
-  background: transparent !important;
-}
-
-.field-type label {
-  color: #374151 !important;
-}
-
-.field-type input,
-.field-type textarea,
-.field-type select {
-  background: #ffffff !important;
-  border-color: #d1d5db !important;
-  color: #111827 !important;
-}
-
-.field-type input:focus,
-.field-type textarea:focus,
-.field-type select:focus {
-  border-color: var(--ordoflow-navy) !important;
-  outline: none !important;
-  box-shadow: 0 0 0 2px rgba(30, 58, 95, 0.2) !important;
-}
-
-/* ===========================================
-   NAVIGATION SIDEBAR - NAVY
-   =========================================== */
-
-.nav,
-.nav__wrap,
-nav[class*="nav"] {
-  background: var(--ordoflow-navy) !important;
-}
-
-/* Nav header with logo */
-.nav__header {
-  background: var(--ordoflow-navy-dark) !important;
-  border-bottom: 1px solid var(--ordoflow-navy-light) !important;
-}
-
-/* Nav links */
-.nav a,
-.nav__link,
-.nav-group__toggle,
-.nav button {
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-
-.nav a:hover,
-.nav__link:hover,
-.nav-group__toggle:hover,
-.nav button:hover {
-  color: #ffffff !important;
-  background: var(--ordoflow-navy-light) !important;
-}
-
-.nav__link--active,
-.nav a[aria-current="page"] {
-  background: var(--ordoflow-navy-light) !important;
-  color: #ffffff !important;
-}
-
-/* Nav group labels */
-.nav-group__label,
-.nav [class*="label"] {
-  color: rgba(255, 255, 255, 0.5) !important;
-  text-transform: uppercase !important;
-  font-size: 0.7rem !important;
-  letter-spacing: 1px !important;
-}
-
-/* Nav icons */
-.nav svg {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
-.nav a:hover svg,
-.nav__link--active svg {
-  color: #ffffff !important;
-}
-
-/* ===========================================
-   TOP HEADER - NAVY
-   =========================================== */
-
-header,
-.app-header,
-[class*="header"] {
-  background: var(--ordoflow-navy) !important;
-  border-bottom: 1px solid var(--ordoflow-navy-light) !important;
-}
-
-header *,
-.app-header * {
-  color: rgba(255, 255, 255, 0.9) !important;
-}
-
-header a:hover,
-header button:hover {
-  color: #ffffff !important;
-}
-
-/* Breadcrumbs in header - keep readable */
-.step-nav,
-[class*="step-nav"],
-[class*="breadcrumb"] {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
-.step-nav a,
-[class*="step-nav"] a {
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-
-.step-nav a:hover {
-  color: #ffffff !important;
-}
-
-/* ===========================================
-   ACCOUNT MENU (bottom of sidebar)
-   =========================================== */
-
-.account,
-[class*="account"] {
-  background: var(--ordoflow-navy) !important;
-  border-top: 1px solid var(--ordoflow-navy-light) !important;
-}
-
-.account *,
-[class*="account"] * {
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-
-.account a:hover,
-.account button:hover {
-  background: var(--ordoflow-navy-light) !important;
-  color: #ffffff !important;
-}
-
-/* ===========================================
-   TABLES - WHITE BACKGROUND
-   =========================================== */
-
-table,
-.table {
-  background: #ffffff !important;
-}
-
-thead,
-.table thead {
+thead {
   background: #f9fafb !important;
 }
 
 th {
   color: #374151 !important;
-  background: #f9fafb !important;
+  font-weight: 600 !important;
 }
 
 td {
   color: #111827 !important;
-  background: #ffffff !important;
   border-color: #e5e7eb !important;
 }
 
 tr:hover td {
-  background: #f3f4f6 !important;
+  background: #f9fafb !important;
 }
 
-/* ===========================================
-   BUTTONS
-   =========================================== */
+/* Forms */
+.field-type label,
+label {
+  color: #374151 !important;
+}
 
+input,
+textarea,
+select {
+  background: #ffffff !important;
+  border-color: #d1d5db !important;
+  color: #111827 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #1e3a5f !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1) !important;
+}
+
+/* Buttons */
 .btn,
-button[class*="btn"] {
+button {
   transition: all 0.2s ease;
 }
 
-/* Primary buttons - navy */
 .btn--style-primary,
-[class*="btn"][class*="primary"] {
-  background: var(--ordoflow-navy) !important;
-  border-color: var(--ordoflow-navy) !important;
+[class*="primary"] button,
+button[class*="primary"] {
+  background: #1e3a5f !important;
+  border-color: #1e3a5f !important;
   color: #ffffff !important;
 }
 
-.btn--style-primary:hover,
-[class*="btn"][class*="primary"]:hover {
-  background: var(--ordoflow-navy-dark) !important;
+.btn--style-primary:hover {
+  background: #152a47 !important;
 }
 
-/* Secondary buttons */
-.btn--style-secondary,
-[class*="btn"][class*="secondary"] {
+.btn--style-secondary {
   background: #ffffff !important;
-  border-color: var(--ordoflow-navy) !important;
-  color: var(--ordoflow-navy) !important;
+  border-color: #1e3a5f !important;
+  color: #1e3a5f !important;
 }
 
 .btn--style-secondary:hover {
-  background: var(--ordoflow-navy) !important;
+  background: #1e3a5f !important;
   color: #ffffff !important;
+}
+
+/* Text colors */
+h1, h2, h3, h4, h5, h6 {
+  color: #111827 !important;
+}
+
+p, span, div {
+  color: inherit;
+}
+
+/* Links in content area */
+a {
+  color: #1e3a5f;
+}
+
+a:hover {
+  color: #152a47;
 }
 
 /* ===========================================
    MODALS & DRAWERS
    =========================================== */
 
-.modal,
 .modal__wrap,
-[class*="modal"] {
+[class*="Modal"] {
   background: #ffffff !important;
 }
 
-.drawer,
 .drawer__content,
-[class*="drawer"] {
+[class*="Drawer"] {
   background: #ffffff !important;
-}
-
-.drawer__header {
-  background: var(--ordoflow-navy) !important;
-  color: #ffffff !important;
 }
 
 /* ===========================================
-   PILLS, TAGS, BADGES
+   MISC FIXES
    =========================================== */
 
+/* Step nav / breadcrumbs */
+.step-nav {
+  background: transparent !important;
+}
+
+.step-nav a,
+.step-nav span {
+  color: #6b7280 !important;
+}
+
+/* Pills and badges */
 .pill,
-[class*="pill"],
-[class*="tag"],
-[class*="badge"] {
+[class*="pill"] {
   background: #e5e7eb !important;
   color: #374151 !important;
 }
 
-/* ===========================================
-   LOGO STYLES
-   =========================================== */
-
-.ordoflow-logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 0.5rem;
-}
-
-.ordoflow-logo-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px dashed rgba(255, 255, 255, 0.25);
-  border-radius: 8px;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  transition: all 0.2s ease;
-}
-
-.ordoflow-logo-box:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.35);
-}
-
-.ordoflow-logo-image-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 50px;
-  padding: 0.25rem;
-}
-
-.ordoflow-logo-image {
-  max-width: 100%;
-  max-height: 100%;
-  height: auto;
-  width: auto;
-  object-fit: contain;
-}
-
-.ordoflow-logo-loading {
-  background: rgba(255, 255, 255, 0.05);
-  border: none;
-}
-
-.ordoflow-logo-skeleton {
-  width: 120px;
-  height: 30px;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.08) 25%,
-    rgba(255, 255, 255, 0.15) 50%,
-    rgba(255, 255, 255, 0.08) 75%
-  );
-  background-size: 200% 100%;
-  border-radius: 4px;
-  animation: ordoflow-shimmer 1.5s infinite;
-}
-
-@keyframes ordoflow-shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-/* ===========================================
-   LOGIN PAGE
-   =========================================== */
-
-.login {
-  background: var(--ordoflow-navy) !important;
-}
-
-.login__form {
+/* Search */
+.search-filter input {
   background: #ffffff !important;
-  border-radius: 12px !important;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
-}
-
-.login__form input {
-  background: #ffffff !important;
-  border-color: #d1d5db !important;
   color: #111827 !important;
 }
 
-.login__form label {
-  color: #374151 !important;
+/* Tooltips */
+[class*="tooltip"],
+[class*="Tooltip"] {
+  background: #1f2937 !important;
+  color: #ffffff !important;
 }
 
 /* ===========================================
    SCROLLBAR
    =========================================== */
 
-.nav::-webkit-scrollbar {
-  width: 6px;
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-.nav::-webkit-scrollbar-track {
-  background: var(--ordoflow-navy-dark);
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
-.nav::-webkit-scrollbar-thumb {
-  background: var(--ordoflow-navy-light);
-  border-radius: 3px;
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
 }
 
-/* ===========================================
-   SEARCH
-   =========================================== */
-
-.search-filter {
-  background: #ffffff !important;
-  border-color: #d1d5db !important;
-}
-
-.search-filter input {
-  background: #ffffff !important;
-  color: #111827 !important;
-}
-
-.search-filter input::placeholder {
-  color: #9ca3af !important;
-}
-
-/* ===========================================
-   TEXT COLORS FIX
-   =========================================== */
-
-/* Ensure all text in main content is dark */
-.template-default h1,
-.template-default h2,
-.template-default h3,
-.template-default h4,
-.template-default p,
-.template-default span,
-.template-default label,
-main h1, main h2, main h3, main h4,
-main p, main span, main label {
-  color: #111827 !important;
-}
-
-/* Links in content */
-main a:not(.nav a):not(header a) {
-  color: var(--ordoflow-navy) !important;
-}
-
-main a:not(.nav a):not(header a):hover {
-  color: var(--ordoflow-navy-dark) !important;
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
 }
