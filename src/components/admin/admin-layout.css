@@ -16,8 +16,11 @@
   --admin-navbar-width: 220px;
 }
 
-/* Reset for admin layout */
+/* Ensure our layout is above Payload's elements */
 .admin-layout {
+  position: relative;
+  z-index: 9999;
+  isolation: isolate;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -38,7 +41,7 @@
   display: flex;
   align-items: center;
   padding: 0 20px;
-  z-index: 1000;
+  z-index: 10001;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -87,7 +90,7 @@
   background: var(--admin-navy);
   padding: 20px 0;
   overflow-y: auto;
-  z-index: 999;
+  z-index: 10000;
 }
 
 .admin-nav-link {
