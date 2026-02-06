@@ -1,8 +1,6 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import AdminLayout from './AdminLayout'
-import '@/styles/admin.css'
 
 interface AdminThemeProviderProps {
   children: React.ReactNode
@@ -16,11 +14,8 @@ const AdminThemeProvider: React.FC<AdminThemeProviderProps> = ({ children }) => 
     }
   }, [])
 
-  return (
-    <AdminLayout>
-      {children}
-    </AdminLayout>
-  )
+  // Use Payload's default layout styled via custom.scss
+  return <>{children}</>
 }
 
 export default AdminThemeProvider
