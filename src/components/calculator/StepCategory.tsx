@@ -62,11 +62,14 @@ export function StepCategory() {
       const counts = await Promise.all(countsPromises)
       const countsMap = new Map(counts.map((c) => [c.categoryId, c.count]))
 
-      // Update categories with counts
-      const categoriesWithCounts = fetchedCategories.map((cat) => ({
-        ...cat,
-        automationsCount: countsMap.get(cat.id) || 0,
-      }))
+      // Update categories with counts and filter out hidden categories
+      const hiddenSlugs = ['it-devops']
+      const categoriesWithCounts = fetchedCategories
+        .filter((cat) => !hiddenSlugs.includes(cat.slug))
+        .map((cat) => ({
+          ...cat,
+          automationsCount: countsMap.get(cat.id) || 0,
+        }))
 
       setCategories(categoriesWithCounts)
       cacheCategories(categoriesWithCounts)
