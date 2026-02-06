@@ -1,174 +1,48 @@
-/* Ordoflow Admin Panel - Custom Theme */
+/* Ordoflow Admin - Minimal Navy Theme */
 
-// Kolor granatowy - ten sam dla góry i lewej strony
 $navy: #1e3a5f;
-$navy-dark: #152a45;
-$blue-accent: #3b82f6;
-$white: #ffffff;
-$gray-50: #f8fafc;
 
-// =============================================
-// GÓRNY PASEK (dekoracyjny) + LEWY SIDEBAR
-// Ten sam kolor granatowy = kształt "L"
-// =============================================
-
-// Górny header
-header.app-header,
+// Header - granatowy z białymi napisami
 .app-header {
   background: $navy !important;
-  border-bottom: none !important;
-  box-shadow: none !important;
+
+  * {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+  }
 }
 
-// Hamburger / toggler
-.template-default__nav-toggler,
-.nav-toggler {
-  background: $navy !important;
-}
-
-// Lewy sidebar
-.template-default__nav,
-nav.nav {
-  background: $navy !important;
-  border-right: none !important;
-}
-
+// Sidebar - granatowy z białymi napisami
+nav.nav,
+.nav,
 .nav__scroll {
   background: $navy !important;
 }
 
-// =============================================
-// LOGO W LEWYM GÓRNYM ROGU
-// =============================================
-
 .nav-header {
-  background: $navy-dark !important;
-  padding: 1.25rem 1rem !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  min-height: 70px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  background: $navy !important;
 }
 
-// =============================================
-// MENU - przyciski w sidebarze
-// =============================================
-
-.nav-group {
-  .nav-group__toggle {
-    color: rgba(255, 255, 255, 0.6) !important;
-    font-size: 0.7rem !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-    font-weight: 600 !important;
-    padding: 1rem 1rem 0.5rem !important;
-
-    &:hover {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    svg {
-      color: rgba(255, 255, 255, 0.4) !important;
-    }
-  }
+// Wszystkie linki i teksty w nav - białe, bold
+.nav__link,
+.nav-group__toggle,
+.nav * {
+  color: #ffffff !important;
+  font-weight: 600 !important;
 }
 
-.nav__link {
-  color: rgba(255, 255, 255, 0.8) !important;
-  padding: 0.6rem 1rem !important;
-  margin: 2px 0.5rem !important;
-  border-radius: 6px !important;
-  transition: all 0.15s ease !important;
-  font-size: 0.9rem !important;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-    color: $white !important;
-  }
-
-  &.active,
-  &[aria-current="page"] {
-    background: $blue-accent !important;
-    color: $white !important;
-  }
-
-  svg,
-  .nav__link-icon {
-    color: inherit !important;
-    opacity: 0.8;
-  }
+// Hover na linkach
+.nav__link:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
 }
 
-// =============================================
-// BIAŁY OBSZAR ROBOCZY (środek)
-// =============================================
-
-.template-default {
-  background: $gray-50 !important;
+// Aktywny link
+.nav__link.active,
+.nav__link[aria-current="page"] {
+  background: rgba(255, 255, 255, 0.2) !important;
 }
 
-.template-default__content {
-  background: $white !important;
-}
-
-main.main {
-  background: $gray-50 !important;
-}
-
-.collection-list,
-.document-fields,
-.edit-view,
-.list-view,
-.dashboard {
-  background: $white !important;
-}
-
-// =============================================
-// PRZYCISKI
-// =============================================
-
-.btn--style-primary {
-  background: $blue-accent !important;
-  border-radius: 6px !important;
-
-  &:hover {
-    background: darken($blue-accent, 8%) !important;
-  }
-}
-
-// =============================================
-// STRONA LOGOWANIA
-// =============================================
-
+// Login page
 .login {
   background: $navy !important;
-
-  .login__form {
-    background: $white !important;
-    border-radius: 12px !important;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
-  }
-}
-
-// =============================================
-// USER MENU (prawy górny róg)
-// =============================================
-
-.account-nav {
-  .popup-button,
-  button {
-    color: $white !important;
-  }
-}
-
-// =============================================
-// POPUP MENU
-// =============================================
-
-.popup {
-  .popup__content {
-    border-radius: 8px !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
-  }
 }

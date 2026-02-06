@@ -8,7 +8,6 @@ import React from 'react'
 
 import { importMap } from './admin/importMap'
 import './custom.scss'
-import '@/styles/admin.css'
 
 type Args = {
   children: React.ReactNode
